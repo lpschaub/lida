@@ -7,7 +7,8 @@ from typing import Dict, List, Any, Tuple, Hashable, Iterable, Union
 from collections import defaultdict
 
 # >>>> Local <<<<
-from dummy_models import TypeDummyModel, BeliefStateDummyModel, PolicyDummyModel, SysDummyModel
+from server.dummy_models import TypeDummyModel, BeliefStateDummyModel, PolicyDummyModel, SysDummyModel, RedirectionModel
+
 
 ##############################################
 #                  CONFIG Dict
@@ -40,39 +41,242 @@ class Configuration(object):
     configDict = {
 
         "usr": {
-            "description" : "The user's query",
-            "label_type"  : "data",  # This type, "data", acts the same as "string" but will always be displayed first in UI
-            "required"    : True
+            "description": "The user's query",
+            "label_type": "data",
+            # This type, "data", acts the same as "string" but will always be displayed first in UI
+            "required": True
         },
 
-        "query_type": {
+        "emotional_state": {
 
-            "description" : "Whether the query was request / inform / farewell",
-            "label_type"  : "multilabel_classification",
-            "required"    : False,
-            "model"       : TypeDummyModel(),
-            "labels"      : [
+            "description": "The user's emotional state",
+            "label_type": "multilabel_classification",
+            "required": True,
+            "labels": [
+
+                "satisfied",
+                "worried",
+                "angry",
+                "sceptical",
+                "unhappy",
+                "neutral"
+            ]
+        },
+        "user satisfaction" : {
+
+            "description" : "Rating user satisfaction at current turn",
+            "label_type"  : "string",
+            "required"    : False
+
+        },
+
+        "dialog_act": {
+
+            "description": "Whether the query was request / inform / farewell",
+            "label_type": "multilabel_classification",
+            "required": True,
+            "model": TypeDummyModel(),
+            "labels": [
 
                 "request",
                 "inform",
-                "farewell"
+                "farewell",
+                "abandon",
+                "accept",
+                "acknowledgeThanks",
+                "agree",
+                "answer",
+                "apologise",
+                "attribute",
+                "bye",
+                "clarify",
+                "complete",
+                "confirm",
+                "contradict",
+                "disagree",
+                "disapprove",
+                "disConfirm",
+                "emphatic",
+                "enumerate",
+                "exclaim",
+                "explain",
+                "greet",
+                "hesitate",
+                "identifySelf",
+                "insult",
+                "negate",
+                "nominate",
+                "offer",
+                "pardon",
+                "phatic",
+                "predict",
+                "refer",
+                "refuse",
+                "rejectSelf",
+                "report",
+                "retract",
+                "selfTalk",
+                "state",
+                "suggest",
+                "swear",
+                "thank",
+                "thirdParty",
+                "unclassifiable",
+                "uninterpretable"
+            ]
+
+        },
+
+        "intent": {
+
+            "description": "User intention",
+            "label_type": "multilabel_classification",
+            "required": True,
+
+            "labels": [
+
+                "delivery",
+                "product",
+                "payment",
+                "purchase",
+                "website",
+                "customer_service",
+                "store",
+                "fidelity",
+                "autre"
 
             ]
 
         },
 
-        "hotel_belief_state": {
+        "previous": {
 
-            "description" : "Slot-value pairs",
-            "label_type"  : "multilabel_classification_string",
-            "required"    : False,
-            "model"       : BeliefStateDummyModel(),
-            "labels"      : [
+            "description": "whether the intention is the same than previous one",
+            "label_type": "multilabel_classification",
+            "required": True,
+            "labels": [
 
-                "hotel-book people",
-                "hotel-book stay",
-                "hotel-book day",
-                "hotel-name"
+                "same",
+                "different",
+                "none"
+            ]
+        },
+
+        "success": {
+
+            "description": "wheter the dialogue is a success",
+            "label_type": "multilabel_classification",
+            "required": False,
+            "labels": [
+
+                "True",
+                "False",
+            ]
+
+        },
+
+        "Delivery_belief_state": {
+
+            "description": "Slot-value pairs",
+            "label_type": "multilabel_classification_string",
+            "required": False,
+            "model": BeliefStateDummyModel(),
+            "labels": [
+
+                "General infos",
+                "Delivery Place",
+                "Delivery time",
+                "Delivery cost",
+                "No news",
+
+            ]
+
+        },
+        "Purchase_belief_state": {
+
+            "description": "Slot-value pairs",
+            "label_type": "multilabel_classification_string",
+            "required": False,
+            "model": BeliefStateDummyModel(),
+            "labels": [
+
+                "Before payment",
+                "After Delivery",
+
+            ]
+
+        },
+        "Payment_belief_state": {
+
+            "description": "Slot-value pairs",
+            "label_type": "multilabel_classification_string",
+            "required": False,
+            "model": BeliefStateDummyModel(),
+            "labels": [
+
+                "Payment mean",
+                "Payment question",
+
+            ]
+
+        },
+        "Product_belief_state": {
+
+            "description": "Slot-value pairs",
+            "label_type": "multilabel_classification_string",
+            "required": False,
+            "model": BeliefStateDummyModel(),
+            "labels": [
+
+                "Product available",
+                "Product Quality",
+                "Product Name",
+                "Product target",
+                "Product Origin",
+
+            ]
+
+        },
+        "Website_belief_state": {
+
+            "description": "Slot-value pairs",
+            "label_type": "multilabel_classification_string",
+            "required": False,
+            "model": BeliefStateDummyModel(),
+            "labels": [
+
+                "Website crash",
+                "Website device"
+
+            ]
+
+        },
+        "Customer_belief_state": {
+
+            "description": "Slot-value pairs",
+            "label_type": "multilabel_classification_string",
+            "required": False,
+            "model": BeliefStateDummyModel(),
+            "labels": [
+
+                "Customer complaint",
+                "Customer account",
+                "Custommer Data",
+
+            ]
+
+        },
+        "Store_belief_state": {
+
+            "description": "Slot-value pairs",
+            "label_type": "multilabel_classification_string",
+            "required": False,
+            "model": BeliefStateDummyModel(),
+            "labels": [
+
+                "Store name",
+                "Store location ",
+                "Store hour",
 
             ]
 
@@ -80,11 +284,11 @@ class Configuration(object):
 
         "policy_funcs": {
 
-            "description" : "Policy functions called for this query",
-            "label_type"  : "multilabel_classification",
-            "required"    : False,
-            "model"       : PolicyDummyModel(),
-            "labels"      : [
+            "description": "Policy functions called for this query",
+            "label_type": "multilabel_classification",
+            "required": False,
+            "model": PolicyDummyModel(),
+            "labels": [
 
                 "Say Goodbye",
                 "Find And Offer Booking",
@@ -97,13 +301,60 @@ class Configuration(object):
         },
 
         "sys": {
-            "description" : "The system's response",
-            "label_type"  : "string",
-            "model"       : SysDummyModel(),
-            "required"    : True
-        }
 
+            "description": "The system's response",
+            "label_type": "data",
+            "required": True
+        },
+
+        "intent_understanding": {
+
+            "description": "whether or not the system got the user's intention",
+            "label_type": "multilabel_classification",
+            "required": True,
+            "labels": [
+
+                "True",
+                "False"
+            ]
+        },
+
+        "response_choice": {
+
+            "description": "whether or not the system provided a relevant response",
+            "label_type": "multilabel_classification",
+            "required": True,
+            "labels": [
+
+                "True",
+                "False"
+            ]
+        },
+
+        "response_type": {
+
+            "description": "the type of dialogic answer the system provides",
+            "label_type": "multilabel_classification",
+            "required": True,
+            "labels": [
+
+                "careful",
+                "dauntless",
+                "kind",
+                "neutral"
+            ]
+        },
+
+        "redirection": {
+
+            "description": "the system redirects the user",
+            "label_type": "string",
+            "required": False,
+            "models": RedirectionModel()
+
+        }
     }
+
 
     @staticmethod
     def validate_dialogue(dialogue: List[Dict[str, Any]]) -> Union[str, List[Dict]]:
@@ -128,7 +379,7 @@ class Configuration(object):
                            "provided in the dialogue in turn {}".format(labelName, i)
 
                 if "multilabel_classification" == info["label_type"]:
-
+                    print(turn)
                     providedLabels = turn[labelName]
 
                     if not all(x in info["labels"] for x in providedLabels):
@@ -138,8 +389,6 @@ class Configuration(object):
 
         return dialogue
 
-
-
     @staticmethod
     def create_annotation_dict():
         """
@@ -148,8 +397,7 @@ class Configuration(object):
         """
         out = {}
 
-        for key,value in Configuration.configDict.items():
-
+        for key, value in Configuration.configDict.items():
             temp = list(value["labels"]) if value.get("labels") else ""
 
             out[key] = {
@@ -160,7 +408,6 @@ class Configuration(object):
 
         return out
 
-
     @staticmethod
     def create_empty_turn():
         """
@@ -168,21 +415,23 @@ class Configuration(object):
         """
         out = {}
 
-        for key,value in Configuration.configDict.items():
+        for key, value in Configuration.configDict.items():
 
             labelType = value["label_type"]
 
             if labelType == "data":
-                out[key] = query
+                out[key] = "query"
 
             elif labelType == "multilabel_classification" or \
-                 labelType == "multilabel_classification_string":
+                    labelType == "multilabel_classification_string":
 
                 out[key] = []
 
             elif labelType == "string":
 
                 out[key] = ""
+            elif labelType == "bool":
+                out[key] = bool
 
             else:
 
@@ -191,16 +440,9 @@ class Configuration(object):
 
         return out
 
+    ##############################################
+    #  MAIN
+    ##############################################
 
 
-
-
-
-
-
-##############################################
-#  MAIN
-##############################################
-
-
-# EOF
+    # EOF
