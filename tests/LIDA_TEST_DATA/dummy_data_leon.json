@@ -1,0 +1,72 @@
+{
+    "Dialogue1.json":[
+        {
+            "policy_funcs":[
+                "Provide Info"
+            ],
+            "sys": "bonjour, je suis _Name1_. en quoi puis je vous aider ? afin d'accélérer le traitement de votre dossier, merci de nous indiquer votre adresse email et / ou votre numéro de commande. ",
+            "usr": "Bonjour,",
+            "turn_idx":1,
+            "query_type":[
+                "request"
+            ]
+        },
+        {
+            "policy_funcs":[
+                "Provide Info"
+            ],
+            "sys": "ok",
+            "usr": "bonjour, je passerai commande seulement si les frais de port sont à 0 €, surtout pour une commande de 220 €. très cordialement. _Name2_ ",
+            "turn_idx":2,
+            "query_type":[
+                "request"
+            ]
+        },
+        {
+            "policy_funcs":[
+                "Provide Info"
+            ],
+            "sys": "ok",
+            "usr": "_Email1_",
+            "turn_idx":3,
+            "query_type":[
+                "inform"
+            ]
+        },
+        {
+            "policy_funcs":[
+                "Provide Info",
+                "Ask For Missing Slots"
+            ],
+             "sys": "vous pouvez utiliser la remise spéciale pour Noël : 5€ de remise dès 60€ d'achat ( hors frais de port ) avec le code NOEL5 et 10€ de remise dès 100€ d'achat ( hors frais de port ) avec le code NOEL10 ",
+            "usr": "dommage. ☺ assez de bonnes fêtes de fin d'année",
+            "turn_idx":4,
+            "query_type":[
+                "inform"
+            ]
+        },
+        {
+            "policy_funcs":[
+                "Try Book"
+            ],
+             "sys": "je vous remercie",
+            "usr": "ok",
+            "turn_idx":5,
+            "query_type":[
+                "inform"
+            ]
+        },
+        {
+            "policy_funcs":[
+                "Say Goodbye"
+            ],
+            "sys": "au nom de toute l'équipe ParfumsMoinsCher.com, je vous souhaite une excellente journée.",
+            "usr": "ok",
+            "turn_idx":6,
+            "query_type":[
+                "farewell"
+            ]
+        },
+        
+    ]
+}

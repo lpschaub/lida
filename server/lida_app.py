@@ -14,9 +14,9 @@ from flask import Flask, jsonify, request
 from flask_cors import CORS
 
 # == Local ==
-from annotator_config import Configuration
-from annotator import DialogueAnnotator
-from text_splitter import convert_string_list_into_dialogue
+from server.annotator_config import Configuration
+from server.annotator import DialogueAnnotator
+from server.text_splitter import convert_string_list_into_dialogue
 
 
 ##############################################

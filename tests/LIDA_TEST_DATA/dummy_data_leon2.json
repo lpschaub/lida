@@ -1,0 +1,83 @@
+{
+    "Dialogue3.json":[
+        {
+            "policy_funcs":[
+                "Provide Info"
+            ],
+            "sys": "bonjour, je suis _Name1_. en quoi puis je vous aider ? afin d'accélérer le traitement de votre dossier, merci de nous indiquer votre adresse email et / ou votre numéro de commande. ",
+            "usr": "bonjour, je souhaiterais savoir si je vais réellement recevoir mon colis aujourd'hui, c'est un cadeau que je souhaitais offrir ce soir et je n'ai absolument aucun suivi depuis le 13 décembre et ce n'est pas normal, merci de me dire ce qu'il en est, voici mon adresse mail : _Email1_ ",
+            "turn_idx":1,
+            "Dialogue_act":[
+                "request"
+            ],
+            "Subdialog" : [
+                "begin"
+            ], 
+            "Satisfaction" : [
+                "0"
+
+            ],
+            "RE" : [
+                "delivery"
+
+            ],
+
+        },
+        {
+            "policy_funcs":[
+                "Provide Info"
+            ],
+            "sys": "pourriez vous m'indiquer votre numéro de commande s'il vous plaît ? ",
+            "usr": "671956",
+            "turn_idx":2,
+            "query_type":[
+                "request"
+            ]
+        },
+        {
+            "policy_funcs":[
+                "Provide Info"
+            ],
+            "sys": "j'effectue les recherches nécessaires, je vous demande un instant.",
+            "usr": "SKIP",
+            "turn_idx":3,
+            "query_type":[
+                "inform"
+            ]
+        },
+        {
+            "policy_funcs":[
+                "Provide Info",
+            ],
+             "sys": "https://www.chronopost.fr/tracking-no-cms/suivi-page?langue=fr&listeNumerosLT=XT027893868FR",
+            "usr": "SKIP",
+            "turn_idx":4,
+            "query_type":[
+                "inform"
+            ]
+        },
+        {
+            "policy_funcs":[
+                "Try Book"
+            ],
+             "sys": "si vus n'étiez pas livrer pour Noel merci de revenir vers nous s'il vous plaît",
+            "usr": "Samedi, votre collègue me disait que le colis devait arriver lundi donc si ce n'est pas le cas, ce serait très embêtant",
+            "turn_idx":5,
+            "query_type":[
+                "inform"
+            ]
+        },
+        {
+            "policy_funcs":[
+                "Say Goodbye"
+            ],
+            "sys": "SKIP",
+            "usr": "vous ne pouvez absolument pas me dire suoiquo ce soit ? ",
+            "turn_idx":6,
+            "query_type":[
+                "farewell"
+            ]
+        },
+        
+    ]
+}

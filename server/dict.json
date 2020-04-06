@@ -1,0 +1,318 @@
+{
+    "configDict"  :[
+
+        {
+            "usr": "data",
+            "description": "The user's query",
+            "label_type": "data",
+            "required": "True"
+        },
+
+        {
+
+            "description": "The user's emotional state",
+            "label_type": "multilabel_classification",
+            "required": "True",
+            "labels": [
+
+                "satisfied",
+                "worried",
+                "angry",
+                "sceptical",
+                "unhappy",
+                "neutral"
+            ]
+        },
+        {
+
+            "description" : "Rating user satisfaction at current turn",
+            "label_type"  : "string",
+            "required"    : "False"
+
+        },
+
+        {
+
+            "description": "Whether the query was request / inform / farewell",
+            "label_type": "multilabel_classification",
+            "required": "True",
+            "model": "TypeDummyModel()",
+            "labels": [
+
+                "request",
+                "inform",
+                "farewell",
+                "abandon",
+                "accept",
+                "acknowledgeThanks",
+                "agree",
+                "answer",
+                "apologise",
+                "attribute",
+                "bye",
+                "clarify",
+                "complete",
+                "confirm",
+                "contradict",
+                "disagree",
+                "disapprove",
+                "disConfirm",
+                "emphatic",
+                "enumerate",
+                "exclaim",
+                "explain",
+                "greet",
+                "hesitate",
+                "identifySelf",
+                "insult",
+                "negate",
+                "nominate",
+                "offer",
+                "pardon",
+                "phatic",
+                "predict",
+                "refer",
+                "refuse",
+                "rejectSelf",
+                "report",
+                "retract",
+                "selfTalk",
+                "state",
+                "suggest",
+                "swear",
+                "thank",
+                "thirdParty",
+                "unclassifiable",
+                "uninterpretable"
+            ]
+
+        },
+
+        {
+
+            "description": "User intention",
+            "label_type": "multilabel_classification",
+            "required": "True",
+
+            "labels": [
+
+                "delivery",
+                "product",
+                "payment",
+                "purchase",
+                "website",
+                "customer_service",
+                "store",
+                "fidelity",
+                "autre"
+
+            ]
+
+        },
+
+         {
+
+            "description": "whether the intention is the same than previous one",
+            "label_type": "multilabel_classification",
+            "required": "True",
+            "labels": [
+
+                "same",
+                "different",
+                "none"
+            ]
+        },
+
+        {
+
+            "description": "wheter the dialogue is a success",
+            "label_type": "multilabel_classification",
+            "required": "False",
+            "labels": [
+
+                "True",
+                "False"
+            ]
+
+        },
+
+        {
+
+            "description": "Slot-value pairs",
+            "label_type": "multilabel_classification_string",
+            "required": "False",
+            "model": "DeliveryStateModel()",
+            "labels": [
+
+                "General infos",
+                "Delivery Place",
+                "Delivery time",
+                "Delivery cost",
+                "No news"
+
+            ]
+
+        },
+        {
+
+            "description": "Slot-value pairs",
+            "label_type": "multilabel_classification_string",
+            "required": "False",
+            "model": "BeliefStateDummyModel()",
+            "labels": [
+
+                "Before payment",
+                "After Delivery"
+
+            ]
+
+        },
+        {
+
+            "description": "Slot-value pairs",
+            "label_type": "multilabel_classification_string",
+            "required": "False",
+            "model": "BeliefStateDummyModel()",
+            "labels": [
+
+                "Payment mean",
+                "Payment question"
+
+            ]
+
+        },
+       {
+
+            "description": "Slot-value pairs",
+            "label_type": "multilabel_classification_string",
+            "required": "False",
+            "model": "BeliefStateDummyModel()",
+            "labels": [
+
+                "Product available",
+                "Product Quality",
+                "Product Name",
+                "Product target",
+                "Product Origin"
+
+            ]
+
+        },
+         {
+
+            "description": "Slot-value pairs",
+            "label_type": "multilabel_classification_string",
+            "required": "False",
+            "model": "BeliefStateDummyModel()",
+            "labels": [
+
+                "Website crash",
+                "Website device"
+
+            ]
+
+        },
+        {
+
+            "description": "Slot-value pairs",
+            "label_type": "multilabel_classification_string",
+            "required": "False",
+            "model": "BeliefStateDummyModel()",
+            "labels": [
+
+                "Customer complaint",
+                "Customer account",
+                "Custommer Data"
+
+            ]
+
+        },
+        {
+
+            "description": "Slot-value pairs",
+            "label_type": "multilabel_classification_string",
+            "required": "False",
+            "model": "BeliefStateDummyModel()",
+            "labels": [
+
+                "Store name",
+                "Store location ",
+                "Store hour"
+
+            ]
+
+        },
+
+        {
+
+            "description": "Policy functions called for this query",
+            "label_type": "multilabel_classification",
+            "required": "False",
+            "model": "PolicyDummyModel()",
+            "labels": [
+
+                "Say Goodbye",
+                "Find And Offer Booking",
+                "Ask For Missing Slots",
+                "Provide Info",
+                "Try Book"
+
+            ]
+
+        },
+
+         {
+
+            "description": "The system's response",
+            "label_type": "data",
+            "required": "True"
+        },
+
+         {
+
+            "description": "whether or not the system got the user's intention",
+            "label_type": "multilabel_classification",
+            "required": "True",
+            "labels": [
+
+                "True",
+                "False"
+            ]
+        },
+
+        {
+
+            "description": "whether or not the system provided a relevant response",
+            "label_type": "multilabel_classification",
+            "required": "True",
+            "labels": [
+
+                "True",
+                "False"
+            ]
+        },
+
+        {
+
+            "description": "the type of dialogic answer the system provides",
+            "label_type": "multilabel_classification",
+            "required": "True",
+            "labels": [
+
+                "careful",
+                "dauntless",
+                "kind",
+                "neutral"
+            ]
+        },
+
+         {
+
+            "description": "the system redirects the user",
+            "label_type": "string",
+            "required": "False",
+            "models": "RedirectionModel()"
+
+        }
+    ]
+    }
