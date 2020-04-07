@@ -298,7 +298,7 @@ class LidaApp(object):
 
             string_list      = [x for x in string_list.split("\n") if x.strip()]
             newId = self.dialogueFile.add_new_dialogue( LidaApp.run_models_on_dialogue( convert_string_list_into_dialogue(string_list) ) )
-
+            print(newId)
             currentResponseObject["message"].append("Added new dialogue: {}".format(newId["id"]))
             currentResponseObject["new_dialogue_id"].append(newId["id"])
 
@@ -306,7 +306,7 @@ class LidaApp(object):
 
 
     @staticmethod
-    def run_models_on_query(query):
+    def run_models_on_query(query, answer):
         """
         runs the model on the query
         """
@@ -315,9 +315,13 @@ class LidaApp(object):
         }
 
         outDict["turn"]["usr"] = query
+        outDict["turn"]["sys"] = answer
+        print(answer)
 
         for key, val in Configuration.configDict.items():
-
+            if key == 'sys' :
+                print("cest le systeme ")
+                outDict["turn"][key] = [answer]
             try:
 
                 outDict["turn"][key] = val["model"].transform(query)
@@ -342,10 +346,12 @@ class LidaApp(object):
         newDialogue = []
 
         for turn in dialogue:
-
+            print(turn)
             userQuery = turn["usr"]
+            sysAnswer = turn["sys"]
+            print(sysAnswer)
 
-            newDialogue.append( LidaApp.run_models_on_query(userQuery)["turn"] )
+            newDialogue.append( LidaApp.run_models_on_query(userQuery, sysAnswer)["turn"] )
 
         return newDialogue
 
