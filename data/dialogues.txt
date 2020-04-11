@@ -1,0 +1,372 @@
+<SILENCE>
+
+bonjour, je suis _Name1_. en quoi puis je vous aider ? afin d'accélérer le traitement de votre dossier, merci de nous indiquer votre adresse email et / ou votre numéro de commande.
+
+1 (09:37) _Name2_ : bonjour, je souhaiterais savoir si je vais réellement recevoir mon colis aujourd'hui, c'est un cadeau que je souhaitais offrir ce soir et je n'ai absolument aucun suivi depuis le 13 décembre et ce n'est pas normal, merci de me dire ce qu'il en est, voici mon adresse mail : _Email1_
+
+(09:38) _Name1_ : pourriez vous m'indiquer votre numéro de commande s'il vous plaît ?
+
+2 (09:39) _Name2_ : 671956
+
+(09:39) _Name1_ : j'effectue les recherches nécessaires, je vous demande un instant.
+
+3 <SILENCE>
+
+(09:40) _Name1_ : le lien devrait évoluer dans la journée
+
+4 <SILENCE>
+
+(09:40) _Name1_ : https://www.chronopost.fr/tracking-no-cms/suivi-page?langue=fr&listeNumerosLT=XT027893868FR
+
+5 <SILENCE>
+
+(09:40) _Name1_ : si vus n'étiez pas livrer pour Noel merci de revenir vers nous s'il vous plaît
+
+6 (09:42) _Name2_ : Samedi, votre collègue me disait que le colis devait arriver lundi donc si ce n'est pas le cas, ce serait très embêtant
+
+<SILENCE>
+
+7 (09:42) _Name2_ : vous ne pouvez absolument pas me dire suoiquo ce soit ?
+
+<SILENCE>
+
+8 (09:43) _Name2_ : quoique ce soit
+
+<SILENCE>
+
+===
+
+<SILENCE>
+
+bonjour, je suis _Name1_. en quoi puis je vous aider ? afin d'accélérer le traitement de votre dossier, merci de nous indiquer votre adresse email et / ou votre numéro de commande.
+
+1 (14:56) _Name1_ : j'ai commandé le25 /11et paye je vudrais savoir ou on en est
+
+<SILENCE>
+
+2 (14:57) _Name1_ : _Email1_
+
+(14:58) _Name2_ : pourriez vous m'indiquer votre numéro de commande s'il vous plaît ?
+
+3 (14:59) _Name1_ : j'ai perdu le N de commande
+
+(15:00) _Name2_ : j'effectue les recherches nécessaires, je vous demande un instant.
+
+4 (15:00) _Name1_ : merci
+
+(15:02) _Name2_ : la dernière commande associée à ce mail _Email1_ remonte à _Name3_
+
+5 <SILENCE>
+
+(15:02) _Name2_ : veuillez vérifier sur le mail de confirmation la référence de cette commande
+
+6 (15:03) _Name1_ : par erreur on l'a effacée
+
+(15:04) _Name2_ : veillez consulter votre historique de navigation et votre relevé bancaire a
+
+7 <SILENCE>
+
+(15:04) _Name2_ : je reste à votre disposition pour toute information complémentaire.
+
+8 (15:08) _Name1_ : merci
+
+<SILENCE>
+
+===
+
+<SILENCE>
+
+bonjour, je suis _Name1_. en quoi puis je vous aider ? afin d'accélérer le traitement de votre dossier, merci de nous indiquer votre adresse email et / ou votre numéro de commande.
+
+1 (11:03) _Name2_ : bonjour, adresse mail _Email1_
+
+<SILENCE>
+
+2 (11:04) _Name2_ : j'attends toujours la livraison de mon parfum tocade
+
+(11:04) _Name1_ : pourriez vous m'indiquer votre numéro de commande s'il vous plaît ?
+
+3 (11:04) _Name2_ : 641441
+
+(11:05) _Name1_ : j'effectue les recherches nécessaires, je vous demande un instant.
+
+4 (11:05) _Name2_ : j'ai reçu femme de rochas et diva mais pas tocade
+
+<SILENCE>
+
+5 (11:05) _Name2_ : j'ai reçu femme de rochas et diva mais pas tocade
+
+(11:06) _Name1_ : comme nous vous l'avons spécifié par email lors du traitement de votre commande, celle ci a été expédiée en deux colis. voici le lien du 2ème colis qui devrait vous être livré dans les prochains jours : http : / / WWW. Chronopost. fr / tracking No kms / suivi page?langue=fr&listeNumerosLT=XT019756074FR
+
+===
+
+<SILENCE>
+
+bonjour, je suis _Name1_. en quoi puis je vous aider ? afin d'accélérer le traitement de votre dossier, merci de nous indiquer votre adresse email et / ou votre numéro de commande.
+
+1 (14:22) _Name2_ : bonjour,
+
+<SILENCE>
+
+2 (14:24) _Name2_ : bonjour, je passerai commande seulement si les frais de port sont à 0 €, surtout pour une commande de 220 €. très cordialement. _Name2_
+
+<SILENCE>
+
+3 (14:24) _Name2_ : _Email1_
+
+(14:25) _Name1_ : vous pouvez utiliser la remise spéciale pour Noël : 5€ de remise dès 60€ d'achat ( hors frais de port ) avec le code NOEL5 et 10€ de remise dès 100€ d'achat ( hors frais de port ) avec le code NOEL10
+
+4 (14:26) _Name2_ : dommage. ☺ assez de bonnes fêtes de fin d'année.
+
+(14:27) _Name1_ : je vous remercie
+
+5 <SILENCE>
+
+(14:27) _Name1_ : au nom de toute l'équipe ParfumsMoinsCher.com, je vous souhaite une excellente journée.
+
+===
+
+<SILENCE>
+
+bonjour, je suis _Name1_. en quoi puis je vous aider ? afin d'accélérer le traitement de votre dossier, merci de nous indiquer votre adresse email et / ou votre numéro de commande.
+
+1 (13:36) bonjour
+
+<SILENCE>
+
+2 (13:37) j'ai renseigné tous l'es champs pour mon inscription et on trouve une erreur ?
+
+(13:37) _Name1_ : pouvez vous m'indiquer votre adresse mail ?
+
+3 (13:38) _Email1_
+
+(13:39) _Name1_ : quel champs pose problème ?
+
+4 (13:41) confirmation ☺
+
+<SILENCE>
+
+5 (13:41) confirmation ☺
+
+(13:42) _Name1_ : je vous invite à vider les caches de votre navigateur et à recommencer
+
+===
+
+<SILENCE>
+
+bonjour, je suis _Name1_. en quoi puis je vous aider ? afin d'accélérer le traitement de votre dossier, merci de nous indiquer votre adresse email et / ou votre numéro de commande.
+
+1 (15:25) _Name1_ : numéro de commande 675615
+
+<SILENCE>
+
+2 (15:25) _Name1_ : email _Email1_
+
+<SILENCE>
+
+3 (15:26) _Name1_ : j'ai contacté Chronopost qui m'a dit que le colis est arrivé en point relais. _Name3_ le point relais n'a rien reçu
+
+<SILENCE>
+
+4 (15:27) _Name1_ : Chronopost m'a dit de vous contacter pour que vous les appeler afin qu'ils vous mettent en relation avec le livreur et que vous parlez au service réclamations
+
+<SILENCE>
+
+5 (15:29) _Name1_ : allô
+
+(15:29) _Name2_ : je regarde, je vous demande un instant
+
+6 (15:29) _Name1_ : d'accord merci
+
+(15:30) _Name2_ : ma collègue a déposé une réclamation auprès de Chronopost afin de localiser ce colis et savoir où il a été livré
+
+7 <SILENCE>
+
+(15:31) _Name2_ : je vous invite à revenir vers nous demain, le temps qu'une réponse nous soit apportée
+
+8 (15:32) _Name1_ : oui car j'ai payé 118€ pour un produit que je n'ai pas. je reviens vers vous demain
+
+(15:32) _Name2_ : d'accord
+
+9 <SILENCE>
+
+(15:34) _Name2_ : avez vous d'autres questions ?
+
+===
+
+<SILENCE>
+
+bonjour, je suis _Name1_. en quoi puis je vous aider ? afin d'accélérer le traitement de votre dossier, merci de nous indiquer votre adresse email et / ou votre numéro de commande.
+
+1 (08:21) bonjour je n'arrive pas à supprimer un article
+
+<SILENCE>
+
+2 (08:22) _Email1_
+
+(08:23) _Name2_ : pourriez vous me donner plus d'informations concernant le problème rencontré ?
+
+3 (08:25) dans mon panier j'ai mis une eau toilette Kenzo flower que je n'arrive pas annuler
+
+(08:26) _Name2_ : pour supprimer un article dans votre panier, il vous suffit de cliquer sur la croix à droite du prix de l'article affiché en rose.
+
+4 (08:28) je suis sur mon portable je ne vois pas de croix je regarderai depuis chez moi sur _Name1_ bonne journée
+
+<SILENCE>
+
+===
+
+<SILENCE>
+
+bonjour, je suis _Name1_. en quoi puis je vous aider ? afin d'accélérer le traitement de votre dossier, merci de nous indiquer votre adresse email et / ou votre numéro de commande.
+
+1 (15:51) _Name11_ : how _Name5_ finilize the shopping ? taire i a question about transporter that _Name5_ don not understand ☹
+
+(15:52) _Name4_ : je vous invite à visiter notre version anglaise si vous souhaitez finaliser votre commande dans votre langue : http : / / WWW. sobelia. com / gb / < https://www.sobelia.com/gb/ >
+
+2 (15:54) _Name11_ : I canot choke _Name2_. frensh i the Only option and I am afraid mi _Name3_ i No good any longer.
+
+(15:54) _Name4_ : I invite you to visit our _Name2_ version if you wish to finalise your order in your language : http : / / WWW. sobelia. com / gb / < https://www.sobelia.com/gb/ >
+
+3 (15:57) _Name11_ : sorry I forgot. I have tried to buy from England, but they do not _Name8_ to _Name10_, Where I live, but to Sweden and _Name1_. they advised me to contact you. have No _Name7_ they do not _Name8_ to us, _Name9_ a stupid thing.
+
+(15:59) _Name4_ : Ok, _Name6_ Help you to finalise your order on our site. what i the problème you are having ?
+
+===
+
+<SILENCE>
+
+bonjour, je suis _Name1_. en quoi puis je vous aider ? afin d'accélérer le traitement de votre dossier, merci de nous indiquer votre adresse email et / ou votre numéro de commande.
+
+1 (16:58) kpodekon : _Email1_
+
+(16:59) _Name1_ : que puis je faire pour vous ?
+
+2 (17:01) kpodekon : j'essaye de payer mais ça ne passe pas quand je clique sur payer.
+
+(17:02) _Name1_ : avez vous un message d'erreur ?
+
+3 (17:02) kpodekon : non rien ne se passe
+
+(17:03) _Name1_ : pouvez vous vider votre cache ?
+
+4 (17:03) kpodekon : c'est quoi le cache ?
+
+(17:04) _Name1_ : mettre à jour votre page intérêt
+
+5 <SILENCE>
+
+(17:04) _Name1_ : internet
+
+6 (17:05) kpodekon : mais elle est à jour.
+
+(17:05) _Name1_ : je vous invite à retourner dans votre panier puis à refaire les étapes
+
+7 <SILENCE>
+
+(17:06) _Name1_ : si le problème persiste je vais contacter le service concerné
+
+8 (17:07) kpodekon : allez y alors, puisque c'est pas la première fois que j'achète chez vous.
+
+<SILENCE>
+
+===
+
+<SILENCE>
+
+bonjour, je suis _Name1_. en quoi puis je vous aider ? afin d'accélérer le traitement de votre dossier, merci de nous indiquer votre adresse email et / ou votre numéro de commande.
+
+1 (11:19) _City1_ _Name2_ : commande #730179
+
+<SILENCE>
+
+2 (11:20) _City1_ _Name2_ : bjr où en est cette commande
+
+<SILENCE>
+
+3 (11:20) _City1_ _Name2_ : je l'attends depuis 22 juin
+
+(11:21) _Name1_ : le délai de livraison pour ce renvoi étant compris entre 12 et 15 jours ouvrés, votre colis devrait être remis dans le point relais en fin de semaine : https://www.chronopost.fr/tracking-no-cms/suivi-page?langue=fr&listeNumerosLT=XT068441791FR
+
+4 (11:23) _City1_ Tshivongo : oui mais c'et depuis le 8 juillet que c'est en cours de livraison quand mème
+
+(11:24) _Name1_ : le statut qui n'évolue pas est lié au fait que Chronopost ne propose pas de suivi aux Etats-Unis ; vous pourrez constater une mise à jour du suivi à l'arrivée du colis sur le territoire français dans les prochains jours.
+
+5 (11:25) _City1_ Tshivongo : ok, le problème est que je subis tout ça a cause d'une erreur venant de votre part etc
+
+<SILENCE>
+
+6 (11:25) _City1_ Tshivongo : moi ma commande était passé depuis le 2/06
+
+(11:26) _Name1_ : effectivement, j'en suis navré. un remboursement des frais a déjà été effectué en guise de dédommagement.
+
+7 (11:32) _City1_ Tshivongo : oui
+
+<SILENCE>
+
+8 (11:32) _City1_ Tshivongo : bon ok j'attend encore cette semaine
+
+<SILENCE>
+
+9 (11:32) _City1_ Tshivongo : cordialement
+
+(11:32) _Name1_ : très bien. au nom de toute l'équipe ParfumsMoinsChers.com, je vous souhaite une agréable journée.
+
+===
+
+<SILENCE>
+
+bonjour, je suis _Name1_. en quoi puis je vous aider ? afin d'accélérer le traitement de votre dossier, merci de nous indiquer votre adresse email et / ou votre numéro de commande.
+
+1 (15:26) _Name2_ : bonjour je souhaiterais savoir si les parfums testeurs seront remis en ligne ?
+
+(15:29) _Name1_ : nous sommes sincèrement désolés mais nous ne proposons plus de testeurs à la vente sur notre boutique en ligne.
+
+2 <SILENCE>
+
+(15:30) _Name1_ : avez vous d'autres questions ?
+
+3 (15:30) _Name2_ : Merci de votre réponse. dommage. Merci bonne journée
+
+(15:30) _Name1_ : je vous souhaite également une bonne journée
+
+===
+
+<SILENCE>
+
+bonjour, je suis _Name1_. en quoi puis je vous aider ? afin d'accélérer le traitement de votre dossier, merci de nous indiquer votre adresse email et / ou votre numéro de commande.
+
+1 <SILENCE>
+
+(09:48) _Name2_ : je suis à votre écoute, que puis je faire pour vous ?
+
+2 (09:49) EMERGUY : bonjour je vais passer une commande de 2 bouteilles d'habits rouge 200 millilitres mais cependant c'est pour un anniversaire du 20 septembre pouvez vous mettre des petits cadeaux c'est-à-dire échantillon de parfum pour homme en cadeau
+
+<SILENCE>
+
+3 (09:49) EMERGUY : Merci par avance
+
+(09:51) _Name2_ : nous sommes sincèrement désolés mais nous ne sommes plus en mesure de fournir d'échantillons pour chaque commande. ces derniers nous sont en effet dorénavant facturés par nos fournisseurs. de plus, les frais de port pour les expédier depuis les Etats-Unis sont relativement élevés ( ils correspondent au coût d'un parfum classique ). Merci de votre compréhension.
+
+4 (09:52) EMERGUY : c'est pas grave merci de m'avoir répondu
+
+(09:53) _Name2_ : je vous en prie
+
+5 <SILENCE>
+
+(09:53) _Name2_ : au nom de toute l'équipe ParfumsMoinsCher.com, je vous souhaite une excellente journée.
+
+6 (09:55) EMERGUY : c'est pas grave je vais quand même passer ma commande si vous voyez quelque chose à rajouter un petit cadeau cela serait gentil la commande est ton nom de _Name1_ _Name3_
+
+(09:57) _Name2_ : nous tenons à vous informer qu'une remise de 5 euros est offerte dès 60 euros d'achat ( hors frais de port )
+
+7 <SILENCE>
+
+(09:57) _Name2_ : voici le code que vous devez enregistrer : _AdminId1_
+
+8 (09:59) EMERGUY : oui ma commande excède 100 € j'ai vu que vous faites 10 % merci
+
+<SILENCE>
+
+===
+

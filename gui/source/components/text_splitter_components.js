@@ -58,7 +58,7 @@ Vue.component("text-splitter", {
         },
 
         process_into_dialogue: function (event) {
-
+            console.log(this.text)
             dialoguesList = this.text.split('===')
 
             console.log("DIALOGUES LIST:", dialoguesList)

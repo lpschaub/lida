@@ -7,7 +7,7 @@ from typing import Dict, List, Any, Tuple, Hashable, Iterable, Union
 from collections import defaultdict
 
 # >>>> Local <<<<
-from server.dummy_models import RedirectionModel, EmotionalStateModel, DialogActModel, IntentDetectionModel, DeliveryStateModel, PurchaseStateModel, PaymentStateModel, ProductStateModel, WebsiteStateModel, CustomerStateModel, StoreStateModel, PolicyModel, ResponseTypeModel, UsrModel, UserSatisfactionModel, PreviousModel, SuccessModel, IntentUnderstandingModel, ResponsePertinenceModel
+from server.dummy_models import RedirectionModel, EmotionalStateModel, SystemDialogActModel, UserDialogActModel, IntentDetectionModel, OrderStateModel, PaymentStateModel, ProductStateModel, WebsiteStateModel, StoreStateModel, PolicyModel, ResponseTypeModel, UsrModel, UserSatisfactionModel, PreviousModel, SuccessModel, IntentUnderstandingModel, ResponsePertinenceModel
 
 
 ##############################################
@@ -51,21 +51,23 @@ class Configuration(object):
             "description": "The user's emotional state",
             "label_type": "multilabel_classification",
             "model"     : EmotionalStateModel(),
-            "required"  : True,
+            "required"  : False,
             "labels"    : [
 
-                "satisfied",
+                "happy",
                 "worried",
                 "angry",
                 "sceptical",
                 "unhappy",
-                "neutre"
+                "neutre",
+                "disappointed",
+                "sad"
             ]
         },
         "user satisfaction": {
 
             "description": "Rating user satisfaction at current turn",
-            "label_type" : "string",
+            "label_type" : "multilabel_classification",
             "model"      : UserSatisfactionModel(),
             "required"   : False,
             "labels"     : [
@@ -75,18 +77,28 @@ class Configuration(object):
 
         },
 
-        "dialog_act": {
+        "system_dialog_act": {
+
+            "description": "Whether the query was request / inform / farewell",
+            "label_type": "multilabel_classification",
+            "required": True,
+            "model": SystemDialogActModel(),
+            "labels": ['Silence', 'Ask', 'Morn', 'Request', 'Inform', 'Farewell', 'Abandon', 'Accept', 'AcknowledgeThanks', 'Agree', 'Answer', 'Apologise', 'Attribute', 'Bye', 'Clarify', 'Complete', 'Confirm', 'Contradict', 'Disagree', 'Disapprove', 'DisConfirm', 'Emphatic', 'Enumerate', 'Exclaim', 'Explain', 'Greet', 'Hesitate', 'IdentifySelf', 'Insult', 'Negate', 'Nominate', 'Offer', 'Pardon', 'Phatic', 'Predict', 'Refer', 'Refuse', 'RejectSelf', 'Report', 'Retract', 'SelfTalk', 'State', 'Suggest', 'Swear', 'Thank', 'ThirdParty', 'Unclassifiable', 'Uninterpretable']
+
+
+        },
+        "user_dialog_act": {
 
             "description": "Whether the query was request / inform / farewell",
             "label_type" : "multilabel_classification",
             "required"   : True,
-            "model"      : DialogActModel(),
+            "model"      : UserDialogActModel(),
             "labels"     : [
-
+                "ask",
+                "morn",
                 "request",
                 "inform",
                 "farewell",
-                "hello",
                 "abandon",
                 "accept",
                 "acknowledgeThanks",
@@ -112,6 +124,7 @@ class Configuration(object):
                 "insult",
                 "negate",
                 "nominate",
+                "none",
                 "offer",
                 "pardon",
                 "phatic",
@@ -122,6 +135,7 @@ class Configuration(object):
                 "report",
                 "retract",
                 "selfTalk",
+                "silence",
                 "state",
                 "suggest",
                 "swear",
@@ -139,27 +153,59 @@ class Configuration(object):
             "label_type": "multilabel_classification",
             "model"     : IntentDetectionModel(),
             "required"  : True,
-            "labels"    : [
-
-                "delivery",
-                "product",
-                "payment",
-                "purchase",
-                "website",
-                "customer_service",
-                "store",
-                "fidelity",
-                "autre"
-
+            "labels"    : ["delivery",
+            "product",
+            "payment",
+            "purchase",
+            "website",
+            "customer_service",
+            "store",
+            "fidelity",
+            "autre",
+            "rien",
+            "saluer",
+            "goodbye",
+            "deliveryTime",
+            "deliveryCost",
+            "deliveryPlace",
+            "deliveryNews",
+            "damagedPackage",
+            "deliveryCountry",
+            "InvalidOrder",
+            "missingItem",
+            "CancelOrder",
+            "ConfirmationOrder",
+            "WrongItem",
+            "ArticleExchange",
+            "ProductAvailable",
+            "ProductPrice",
+            "ProductQuality",
+            "productSize",
+            "ProductTarget",
+            "PaymentTool",
+            "PaymentRefused",
+            "DoublePayment",
+            "Discount",
+            "Refund",
+            "Compensation",
+            "MultipleAccount",
+            "ChangeData",
+            "Login",
+            "AccountCreation",
+            "GDPR",
+            "WebsiteBug",
+            "WebsiteDevice",
+            "CustomerComplaint",
+            "StoreHours",
+            "StoreLocation"
             ]
-
         },
 
         "previous": {
 
             "description": "whether the intention is the same than previous one",
             "label_type" : "multilabel_classification",
-            "required"   : True,
+            "required"   : False,
             "model"      : PreviousModel(),
             "labels"     : [
 
@@ -182,35 +228,22 @@ class Configuration(object):
 
         },
 
-        "Delivery_belief_state": {
+        "Order_belief_state": {
 
-            "description": "Slot-value pairs for delivery  belief state tracking",
+            "description": "Slot-value pairs for order  belief state tracking",
             "label_type" : "multilabel_classification_string",
             "required"   : False,
-            "model"      : DeliveryStateModel(),
+            "model"      : OrderStateModel(),
             "labels"     : [
 
                 "Order number",
-                "Delivery Location",
-                "Order date",
+                "Order Location",
+                "Order date"
 
             ]
 
         },
-        "Purchase_belief_state": {
 
-            "description": "Slot-value pair for purchase belief state tracking",
-            "label_type" : "multilabel_classification_string",
-            "required"   : False,
-            "model"      : PurchaseStateModel(),
-            "labels"     : [
-
-                "Order process",
-                "Order issue",
-
-            ]
-
-        },
         "Payment_belief_state": {
 
             "description": "Slot-value pairs for payment belief state tracking",
@@ -221,7 +254,6 @@ class Configuration(object):
 
                 "Payment tool",
                 "Payment code",
-                "Payment request"
 
             ]
 
@@ -234,11 +266,8 @@ class Configuration(object):
             "model"      : ProductStateModel(),
             "labels"     : [
 
-                "Product available",
-                "Product Quality",
                 "Product Name",
-                "Product target",
-                "Product Origin",
+                "Product target"
 
             ]
 
@@ -251,27 +280,15 @@ class Configuration(object):
             "model"      : WebsiteStateModel(),
             "labels"     : [
 
-                "Website bug",
-                "Website device"
-
-            ]
-
-        },
-        "Customer_belief_state": {
-
-            "description": "Slot-value pairs for customer belief state tracking",
-            "label_type" : "multilabel_classification_string",
-            "required"   : False,
-            "model"      : CustomerStateModel(),
-            "labels"     : [
-
-                "Customer complaint",
+                "Website device",
                 "Customer account",
-                "Custommer Data",
+                "Customer Data",
+                "Customer action"
 
             ]
 
         },
+
         "Store_belief_state": {
 
             "description": "Slot-value pairs for store belief state tracking",
@@ -280,9 +297,7 @@ class Configuration(object):
             "model"      : StoreStateModel(),
             "labels"     : [
 
-                "Store name",
-                "Store location ",
-                "Store hour",
+                "Store name"
 
             ]
 
@@ -306,10 +321,13 @@ class Configuration(object):
                 'Proceed to checkpoint',
                 'Ask for waiting',
                 'Apologize',
+                'Advise to look elsewhere',
                 'Look for customer file',
                 'Reset working memory',
                 'Do nothing',
-                'Repeat previous'
+                'Repeat previous',
+                'Negate request',
+                'Ask for another question'
             ]
 
         },
@@ -325,7 +343,7 @@ class Configuration(object):
 
             "description": "whether or not the system got the user's intention",
             "label_type" : "multilabel_classification",
-            "required"   : True,
+            "required"   : False,
             "model"      : IntentUnderstandingModel(),
             "labels"     : [
 
@@ -334,11 +352,12 @@ class Configuration(object):
             ]
         },
 
+
         "response pertinence": {
 
             "description": "whether or not the system provided a relevant response",
             "label_type" : "multilabel_classification",
-            "required"   : True,
+            "required"   : False,
             "model"      : ResponsePertinenceModel(),
             "labels"     : [
 
@@ -351,7 +370,7 @@ class Configuration(object):
 
             "description": "the type of dialogic answer the system provides",
             "label_type" : "multilabel_classification",
-            "required"   : True,
+            "required"   : False,
             "model"      : ResponseTypeModel(),
             "labels"     : [
 
@@ -365,9 +384,13 @@ class Configuration(object):
         "redirection": {
 
             "description": "the system redirects the user",
-            "label_type" : "string",
+            "label_type" : "multilabel_classification",
             "required"   : False,
-            "model"      : RedirectionModel()
+            "model"      : RedirectionModel(),
+            "labels"     : [
+                    "Redirection",
+                    "No redirection"
+            ]
 
         }
     }
@@ -396,7 +419,6 @@ class Configuration(object):
                            "provided in the dialogue in turn {}".format(labelName, i)
 
                 if "multilabel_classification" == info["label_type"]:
-                    print(turn)
                     providedLabels = turn[labelName]
 
                     if not all(x in info["labels"] for x in providedLabels):
@@ -447,8 +469,6 @@ class Configuration(object):
             elif labelType == "string":
 
                 out[key] = ""
-            elif labelType == "bool":
-                out[key] = bool
 
             else:
 

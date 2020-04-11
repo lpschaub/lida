@@ -34,10 +34,7 @@ class RedirectionModel :
 
     def transform(self, sent) :
         n = randint(0, 1)
-        if n == 0 :
-            return "I redirect you to a competent agent"
-        else :
-            return ''
+        return []
 
 
 class BeliefStateDummyModel :
@@ -55,22 +52,6 @@ class BeliefStateDummyModel :
     def transform(self, sent) :
         return [("hotel-book people", "5")]
 
-
-class PolicyDummyModel :
-    """
-        Emulates a Policy Predictor
-
-            "labels": [
-                'Say Goodbye',
-                'Find And Offer Booking',
-                'Ask For Missing Slots',
-                'Provide Info',
-                'Try Book'
-            ]
-    """
-
-    def transform(self, sent) :
-        return ["Find And Offer Booking", "Ask For Missing Slots"]
 
 
 class TypeDummyModel :
@@ -110,10 +91,20 @@ class EmotionalStateModel :
                 "sceptical",
                 "unhappy",
                 "neutral"]
-        return [l[randint(0,len(l)-1)]]
+        return ["neutral"]
 
+class SystemDialogActModel :
+    """
+              Emulates the Dialog acts detector
+              random function  : it is a multilabel problem so we emprically know that there can't be more than
+              4 dialog acts per user's utterance.
+              Therefore we return between  and 4 objects from the list
 
-class DialogActModel :
+    """
+
+    def transform(self, sent):
+        return ['Greet', 'Ask', 'Request']
+class UserDialogActModel :
     """
               Emulates the Dialog acts detector
               random function  : it is a multilabel problem so we emprically know that there can't be more than
@@ -171,7 +162,9 @@ class DialogActModel :
                   ]
           """
     def transform(self, sent) :
-        l =  ["request",
+        l =  [
+                "ask",
+                "request",
                 "hello",
                 "inform",
                 "farewell",
@@ -216,7 +209,8 @@ class DialogActModel :
                 "thank",
                 "thirdParty",
                 "unclassifiable",
-                "uninterpretable"]
+                "uninterpretable",
+                "silence"]
         n = randint(1,5)
 
         def recurs(liste, nbr, new_l=[]):
@@ -228,7 +222,10 @@ class DialogActModel :
                 liste.pop(nbis)
                 return recurs(liste, nbr - 1, new_l)
         new_l = recurs(l, n)
-        return new_l
+
+        # return new_l
+
+        return ['silence']
 class UserSatisfactionModel:
     """
         Gets user satisfaction according to his/her utterance
@@ -238,10 +235,7 @@ class UserSatisfactionModel:
 
         n = randint(0,1)
 
-        if n == 1:
-            return ['satisfied']
-        else :
-            return ['not satisfied']
+        return []
 
 class SuccessModel:
     """
@@ -252,10 +246,7 @@ class SuccessModel:
 
         n = randint(0,1)
 
-        if n == 0:
-            return ['fail']
-        else :
-            return ['success']
+        return []
 
 class ResponsePertinenceModel:
     """
@@ -266,10 +257,7 @@ class ResponsePertinenceModel:
 
         n = randint(0,1)
 
-        if n == 0:
-            return ['N']
-        else :
-            return ['Y']
+        return ['Y']
 
 
 class IntentUnderstandingModel:
@@ -281,10 +269,7 @@ class IntentUnderstandingModel:
 
         n = randint(0,1)
 
-        if n == 0:
-            return ['False']
-        else :
-            return ['True']
+        return []
 
 class PreviousModel:
     """
@@ -295,11 +280,7 @@ class PreviousModel:
 
         n = randint(0,1)
 
-        if n == 0:
-            return ['no']
-        else :
-            return ['yes']
-
+        return ['no']
 
 class IntentDetectionModel :
     """
@@ -331,11 +312,15 @@ class IntentDetectionModel :
                 "customer_service",
                 "store",
                 "fidelity",
-                "autre"]
-        return [l[randint(0, len(l)-1)]]
+                "autre",
+                "rien"
+
+        ]
+
+        return ["rien"]
 
 
-class DeliveryStateModel :
+class OrderStateModel :
 
     """
 
@@ -344,42 +329,21 @@ class DeliveryStateModel :
     """
     def transform(self, sent) :
 
-        l =  ['time', 'cost', 'location']
+        l =  ['date', 'number', 'location']
+        # return [()]
+        # subtask = l[randint(0, len(l)-1)]
+        #
+        # if subtask == 'data' :
+        #     return [('Order date', randint(1, 15))]
+        #
+        # elif subtask == 'name' :
+        #     return [('Order name', randint(1, 300))]
+        #
+        # elif subtask == 'location' :
+        #     loc = ['home', 'pointrelais', 'surplace']
+        #     return [('Order location', loc[randint(0, len(loc)-1)])]
+        #
 
-        subtask = l[randint(0, len(l)-1)]
-
-        if subtask == 'time' :
-            return [('Order date', randint(1, 15))]
-
-        elif subtask == 'cost' :
-            return [('Delivery cost', randint(1, 300))]
-
-        elif subtask == 'location' :
-            loc = ['home', 'pointrelais', 'surplace']
-            return [('Delivery location', loc[randint(0, len(loc)-1)])]
-
-
-class PurchaseStateModel :
-    """
-
-         Belief state tracker for purchase
-
-    """
-    def transform(self, sent) :
-
-        l = ['process', 'issue']
-
-        subtask = l[randint(0, len(l) - 1)]
-
-        if subtask == 'process' :
-            process = ['change', 'cancel', 'other']
-            return [('Order process', process[randint(0, len(process)-1)])]
-
-        elif subtask == 'issue' :
-            issues = ['invalid', 'wrong', 'missing', 'noConfirmation']
-            return [('Order issue', issues[randint(0,len(issues)-1)])]
-        
-        
 class PaymentStateModel :
     """
 
@@ -388,21 +352,17 @@ class PaymentStateModel :
     """
     
     def transform(self, sent) :
-
-        l = ['tool', 'code', 'request']
-
-        subtask = l[randint(0, len(l)-1)]
-
-        if subtask == 'tool' :
-            tools = ['cb', 'check', 'paypal', 'bons', 'instalment', 'gift']
-            return [('Payment tool', tools[randint(0, len(tools)-1)])]
-
-        elif subtask == 'code' :
-            return [('Payment code', 'CODE'+str(randint(0,100)))]
-
-        elif subtask == 'request' :
-            requests = ['refund', 'compensation', 'refused', 'invoice']
-            return [('Payment request', requests[randint(0, len(requests) - 1)])]
+        return [()]
+        # l = ['tool', 'code']
+        #
+        # subtask = l[randint(0, len(l)-1)]
+        #
+        # if subtask == 'tool' :
+        #     tools = ['cb', 'check', 'paypal', 'bons', 'instalment', 'gift']
+        #     return [('Payment tool', tools[randint(0, len(tools)-1)])]
+        #
+        # elif subtask == 'code' :
+        #     return [('Payment code', 'CODE'+str(randint(0,100)))]
 
 
 class ProductStateModel :
@@ -415,7 +375,8 @@ class ProductStateModel :
 
     def transform(self, sent) :
 
-        return [("Product info", "Parfum Chanel 5")]
+        return [()]
+        # return [("Product info", "Parfum Chanel 5")]
 
 
 class WebsiteStateModel :
@@ -427,42 +388,22 @@ class WebsiteStateModel :
 
     def transform(self, sent) :
 
-        l = ['bug', 'device']
-
-        subtask = l[randint(0, len(l) - 1)]
-
-        if subtask == 'bug':
-            bugs = ['account', 'homepage', 'connection', 'email', 'application']
-            return [('Website bug', bugs[randint(0, len(bugs) - 1)])]
-
-        elif subtask == 'device':
-            devices = ['mobile', 'pc', 'tablet']
-            return [('Website device', devices[randint(0, len(devices) - 1)])]
-
-class CustomerStateModel :
-    """
-
-            Belief state tracker for customer
-
-    """
-
-    def transform(self, sent):
-
-        l = ['account', 'complaint', 'data']
-
-        subtask = l[randint(0, len(l) - 1)]
-
-        if subtask == 'account':
-            accounts = ['password', 'id', 'email', 'creation']
-            return [('Customer account', accounts[randint(0, len(accounts) - 1)])]
-
-        elif subtask == 'complaint':
-            complaints = ['badAd', 'concurrence', 'service']
-            return [('Customer complaint', complaints[randint(0, len(complaints) - 1)])]
-
-        elif subtask == 'data' :
-            datas = ['protect', 'remove', 'check', 'change']
-            return [('Customer data', datas[randint(0, len(datas) - 1)])]
+        return [()]
+        # l = ['account', 'device', 'data']
+        #
+        # subtask = l[randint(0, len(l) - 1)]
+        #
+        # if subtask == 'account':
+        #     accounts = ['password', 'id', 'email', 'creation']
+        #     return [('Customer account', accounts[randint(0, len(accounts) - 1)])]
+        #
+        # elif subtask == 'device':
+        #     devices = ['mobile', 'pc', 'tablet']
+        #     return [('Website device', devices[randint(0, len(devices) - 1)])]
+        #
+        # elif subtask == 'data' :
+        #     datas = ['protect', 'remove', 'check', 'change']
+        #     return [('Customer data', datas[randint(0, len(datas) - 1)])]
 
 class StoreStateModel :
 
@@ -474,28 +415,9 @@ class StoreStateModel :
 
     def transform(self, sent) :
 
-        l = ['location', 'hours']
+        return [('Store name', "Parfum moins cher")]
 
-        subtask = l[randint(0, len(l) - 1)]
 
-        if subtask == 'location' :
-            locations = ['situé', 'France', 'magasin']
-            return [('Store location', locations[randint(0, len(locations)-1)])]
-
-        elif subtask == 'hours' :
-            hours = ['PMC Lyon', 'dimanche', 'soir', 'matin']
-            n = randint(1, (len(hours)))
-
-            def recurs(liste, nbr, new_l=[]):
-                if nbr == 0:
-                    return new_l
-                else:
-                    nbis = randint(0, len(liste) - 1)
-                    new_l.append(liste[nbis])
-                    liste.pop(nbis)
-                    return recurs(liste, nbr - 1, new_l)
-            new_l = recurs(hours, n)
-            return new_l
 
 
 class PolicyModel:
@@ -517,6 +439,7 @@ class PolicyModel:
                 'Proceed to checkpoint',
                 'Ask for waiting',
                 'Apologize',
+                'Advise to look elsewhere',
                 'Look for customer file',
                 'Reset working memory',
                 'Do nothing',
@@ -534,7 +457,8 @@ class PolicyModel:
                 return recurs(liste, nbr - 1, new_l)
 
         new_l = recurs(pol, n)
-        return new_l
+        # return new_l
+        return ['Say Hello','Ask For Missing Slots']
 
 
 class ResponseTypeModel:
@@ -552,4 +476,4 @@ class ResponseTypeModel:
                 "kind",
                 "neutral"
             ]
-        return [l[randint(0, len(l)-1)]]
+        return ["neutral"]
