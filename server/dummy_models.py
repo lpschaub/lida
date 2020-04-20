@@ -103,7 +103,7 @@ class SystemDialogActModel :
     """
 
     def transform(self, sent):
-        return ['Greet', 'Ask', 'Request']
+        return []
 class UserDialogActModel :
     """
               Emulates the Dialog acts detector
@@ -225,7 +225,7 @@ class UserDialogActModel :
 
         # return new_l
 
-        return ['silence']
+        return []
 class UserSatisfactionModel:
     """
         Gets user satisfaction according to his/her utterance
@@ -280,7 +280,7 @@ class PreviousModel:
 
         n = randint(0,1)
 
-        return ['no']
+        return []
 
 class IntentDetectionModel :
     """
@@ -317,7 +317,7 @@ class IntentDetectionModel :
 
         ]
 
-        return ["rien"]
+        return []
 
 
 class OrderStateModel :
@@ -458,7 +458,7 @@ class PolicyModel:
 
         new_l = recurs(pol, n)
         # return new_l
-        return ['Say Hello','Ask For Missing Slots']
+        return []
 
 
 class ResponseTypeModel:

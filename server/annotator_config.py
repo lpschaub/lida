@@ -36,8 +36,6 @@ class Configuration(object):
     """
     class responsible for configuration and valid annotation structure
     """
-
-
     configDict = {
 
         "usr": {
@@ -83,7 +81,53 @@ class Configuration(object):
             "label_type": "multilabel_classification",
             "required": True,
             "model": SystemDialogActModel(),
-            "labels": ['Silence', 'Ask', 'Morn', 'Request', 'Inform', 'Farewell', 'Abandon', 'Accept', 'AcknowledgeThanks', 'Agree', 'Answer', 'Apologise', 'Attribute', 'Bye', 'Clarify', 'Complete', 'Confirm', 'Contradict', 'Disagree', 'Disapprove', 'DisConfirm', 'Emphatic', 'Enumerate', 'Exclaim', 'Explain', 'Greet', 'Hesitate', 'IdentifySelf', 'Insult', 'Negate', 'Nominate', 'Offer', 'Pardon', 'Phatic', 'Predict', 'Refer', 'Refuse', 'RejectSelf', 'Report', 'Retract', 'SelfTalk', 'State', 'Suggest', 'Swear', 'Thank', 'ThirdParty', 'Unclassifiable', 'Uninterpretable']
+            "labels": [ "query-ask ",
+                    "query-request",
+                    "disatisfaction-disappointment",
+                    "disatisfaction-discontent"
+                    "inform-abandon",
+                     "inform-answer",
+                     "inform-attribute",
+                     "inform-clarify",
+                     "inform-complete",
+                      "inform-enumerate",
+                     "inform-identifySelf",
+                     "inform-nominate",
+                     "inform-offer",
+                     "inform-predict",
+                     "inform-refer",
+                     "inform-report",
+                     "inform-selfTalk",
+                     "inform-state",
+                    "empathic-exclaim",
+                    "empathic-swear",
+                    "phatic-farewell",
+                    "phatic-bye",
+                    "phatic-greet"
+                    "yes-accept",
+                     "yes-acknowledge",
+                     "yes-agree",
+                     "yes-confirm",
+                    "no-contradict",
+                    "no-disagree",
+                    "no-disapprove",
+                    "no-disConfirm",
+                    "no-negate",
+                    "no-none",
+                    "no-refuse",
+                    "no-rejectSelf",
+                    "no-retract",
+                    "excuse-apologise",
+                    "excuse-pardon",
+                    "uncertainty-hesitate",
+                    "uncertainty-doubt",
+                    "aggression-insult",
+                    "aggression-theaten",
+                    "thank",
+                    "thirdParty",
+                    "unknown-unclassifiable",
+                    "unknown-uninterpretable"
+                ]
 
 
         },
@@ -94,55 +138,53 @@ class Configuration(object):
             "required"   : True,
             "model"      : UserDialogActModel(),
             "labels"     : [
-                "ask",
-                "morn",
-                "request",
-                "inform",
-                "farewell",
-                "abandon",
-                "accept",
-                "acknowledgeThanks",
-                "agree",
-                "answer",
-                "apologise",
-                "attribute",
-                "bye",
-                "clarify",
-                "complete",
-                "confirm",
-                "contradict",
-                "disagree",
-                "disapprove",
-                "disConfirm",
-                "emphatic",
-                "enumerate",
-                "exclaim",
-                "explain",
-                "greet",
-                "hesitate",
-                "identifySelf",
-                "insult",
-                "negate",
-                "nominate",
-                "none",
-                "offer",
-                "pardon",
-                "phatic",
-                "predict",
-                "refer",
-                "refuse",
-                "rejectSelf",
-                "report",
-                "retract",
-                "selfTalk",
-                "silence",
-                "state",
-                "suggest",
-                "swear",
+                "query-ask ",
+                "query-request",
+                "disatisfaction-disappointment",
+                "disatisfaction-discontent"
+                "inform-abandon",
+                 "inform-answer",
+                 "inform-attribute",
+                 "inform-clarify",
+                 "inform-complete",
+                  "inform-enumerate",
+                 "inform-identifySelf",
+                 "inform-nominate",
+                 "inform-offer",
+                 "inform-predict",
+                 "inform-refer",
+                 "inform-report",
+                 "inform-selfTalk",
+                 "inform-state",
+                "empathic-exclaim",
+                "empathic-swear",
+                "phatic-farewell",
+                "phatic-bye",
+                "phatic-greet"
+                "yes-accept",
+                 "yes-acknowledge",
+                 "yes-agree",
+                 "yes-confirm",
+                "no-contradict",
+                "no-disagree",
+                "no-disapprove",
+                "no-disConfirm",
+                "no-negate",
+                "no-none",
+                "no-refuse",
+                "no-rejectSelf",
+                "no-retract",
+                "excuse-apologise",
+                "excuse-pardon",
+                "uncertainty-hesitate",
+                "uncertainty-doubt",
+                "aggression-insult",
+                "aggression-theaten",
                 "thank",
                 "thirdParty",
-                "unclassifiable",
-                "uninterpretable"
+                "unknown-unclassifiable",
+                "unknown-uninterpretable",
+
             ]
 
         },
@@ -197,8 +239,12 @@ class Configuration(object):
             "WebsiteDevice",
             "CustomerComplaint",
             "StoreHours",
-            "StoreLocation"
-            ]
+            "StoreLocation",
+            "ReceptionAlert",
+            "AskConfirmation",
+            "CommuncationInterruption",
+
+                           ]
         },
 
         "previous": {
@@ -227,24 +273,186 @@ class Configuration(object):
             ]
 
         },
-
-        "Order_belief_state": {
+        "DeliveryGeneral_belief_state": {
 
             "description": "Slot-value pairs for order  belief state tracking",
-            "label_type" : "multilabel_classification_string",
-            "required"   : False,
-            "model"      : OrderStateModel(),
-            "labels"     : [
+            "label_type": "multilabel_classification_string",
+            "required": False,
+            "model": OrderStateModel(),
+            "labels": [
 
-                "Order number",
-                "Order Location",
-                "Order date"
+                "signing",
+                "separated"
 
             ]
 
         },
+        "DeliveryCost_belief_state": {
 
-        "Payment_belief_state": {
+            "description": "Slot-value pairs for order  belief state tracking",
+            "label_type": "multilabel_classification_string",
+            "required": False,
+            "model": OrderStateModel(),
+            "labels": [
+
+                "place"
+
+            ]
+
+        },
+        "DeliveryTime_belief_state": {
+
+            "description": "Slot-value pairs for order  belief state tracking",
+            "label_type": "multilabel_classification_string",
+            "required": False,
+            "model": OrderStateModel(),
+            "labels": [
+
+                "date",
+                "order_nbr"
+
+            ]
+
+        },
+        "DeliveryPlace_belief_state": {
+
+            "description": "Slot-value pairs for order  belief state tracking",
+            "label_type": "multilabel_classification_string",
+            "required": False,
+            "model": OrderStateModel(),
+            "labels": [
+
+                "place"
+
+            ]
+
+        },
+        "DeliveryNews_belief_state": {
+
+            "description": "Slot-value pairs for order  belief state tracking",
+            "label_type": "multilabel_classification_string",
+            "required": False,
+            "model": OrderStateModel(),
+            "labels": [
+
+                "order_nbr",
+                "operation",
+                "place"
+
+            ]
+
+        },
+        "DeliveryCountry_belief_state": {
+
+            "description": "Slot-value pairs for order  belief state tracking",
+            "label_type": "multilabel_classification_string",
+            "required": False,
+            "model": OrderStateModel(),
+            "labels": [
+
+                "country"
+
+            ]
+
+        },
+        "Damaged_belief_state": {
+
+            "description": "Slot-value pairs for order  belief state tracking",
+            "label_type": "multilabel_classification_string",
+            "required": False,
+            "model": OrderStateModel(),
+            "labels": [
+
+                "order_nbr",
+                "operation",
+                "address"
+
+            ]
+
+        },
+        "Invalid_belief_state": {
+
+            "description": "Slot-value pairs for order  belief state tracking",
+            "label_type": "multilabel_classification_string",
+            "required": False,
+            "model": OrderStateModel(),
+            "labels": [
+
+                "order_nbr",
+                "account_connection"
+
+            ]
+
+        },
+        "Missing_belief_state": {
+
+            "description": "Slot-value pairs for order  belief state tracking",
+            "label_type": "multilabel_classification_string",
+            "required": False,
+            "model": OrderStateModel(),
+            "labels": [
+
+                "order_nbr",
+                "article"
+
+            ]
+
+        },
+        "Cancel_belief_state": {
+
+            "description": "Slot-value pairs for order  belief state tracking",
+            "label_type": "multilabel_classification_string",
+            "required": False,
+            "model": OrderStateModel(),
+            "labels": [
+
+                "order_nbr",
+
+            ]
+
+        },
+        "Confirmation_belief_state": {
+
+            "description": "Slot-value pairs for order  belief state tracking",
+            "label_type": "multilabel_classification_string",
+            "required": False,
+            "model": OrderStateModel(),
+            "labels": [
+
+                "order_nbr",
+                "email"
+
+            ]
+
+        },
+        "Wrong_belief_state": {
+
+            "description": "Slot-value pairs for order  belief state tracking",
+            "label_type": "multilabel_classification_string",
+            "required": False,
+            "model": OrderStateModel(),
+            "labels": [
+
+                "order_nbr",
+
+            ]
+
+        },
+        "Exchange_belief_state": {
+
+            "description": "Slot-value pairs for order  belief state tracking",
+            "label_type": "multilabel_classification_string",
+            "required": False,
+            "model": OrderStateModel(),
+            "labels": [
+
+                "order_nbr",
+                "article"
+
+            ]
+
+        },
+        "PaymentTool_belief_state": {
 
             "description": "Slot-value pairs for payment belief state tracking",
             "label_type" : "multilabel_classification_string",
@@ -252,13 +460,56 @@ class Configuration(object):
             "model"      : PaymentStateModel(),
             "labels"     : [
 
-                "Payment tool",
-                "Payment code",
+                "payment_tool",
 
             ]
 
         },
-        "Product_belief_state": {
+        "PaymentRefused_belief_state": {
+
+            "description": "Slot-value pairs for payment belief state tracking",
+            "label_type": "multilabel_classification_string",
+            "required": False,
+            "model": PaymentStateModel(),
+            "labels": [
+
+                "payment_tool",
+                "device",
+                "error",
+                "step"
+
+            ]
+
+        },
+        "DoublePayment_belief_state": {
+
+            "description": "Slot-value pairs for payment belief state tracking",
+            "label_type": "multilabel_classification_string",
+            "required": False,
+            "model": PaymentStateModel(),
+            "labels": [
+
+                "log"
+
+            ]
+
+        },
+        "Discount_belief_state": {
+
+            "description": "Slot-value pairs for payment belief state tracking",
+            "label_type": "multilabel_classification_string",
+            "required": False,
+            "model": PaymentStateModel(),
+            "labels": [
+
+                "code",
+                "uppercase",
+                "email"
+
+            ]
+
+        },
+        "ProductAvailable_belief_state": {
 
             "description": "Slot-value pairs for product belief state tracking",
             "label_type" : "multilabel_classification_string",
@@ -266,8 +517,48 @@ class Configuration(object):
             "model"      : ProductStateModel(),
             "labels"     : [
 
-                "Product Name",
-                "Product target"
+                "article",
+                "reload"
+
+            ]
+
+        },
+        "ProductPrice_belief_state": {
+
+            "description": "Slot-value pairs for product belief state tracking",
+            "label_type": "multilabel_classification_string",
+            "required": False,
+            "model": ProductStateModel(),
+            "labels": [
+
+                "article",
+                "price",
+                "size",
+                "add"
+
+            ]
+
+        },
+        "ProductQuality_belief_state": {
+
+            "description": "Slot-value pairs for product belief state tracking",
+            "label_type": "multilabel_classification_string",
+            "required": False,
+            "model": ProductStateModel(),
+            "labels": [
+
+            ]
+
+        },
+        "ProductSize_belief_state": {
+
+            "description": "Slot-value pairs for product belief state tracking",
+            "label_type": "multilabel_classification_string",
+            "required": False,
+            "model": ProductStateModel(),
+            "labels": [
+
+                "article",
 
             ]
 
@@ -288,6 +579,87 @@ class Configuration(object):
             ]
 
         },
+        "Refund_belief_state": {
+
+            "description": "Slot-value pairs for product belief state tracking",
+            "label_type": "multilabel_classification_string",
+            "required": False,
+            "model": ProductStateModel(),
+            "labels": [
+
+                "order_nbr"
+
+            ]
+
+        },
+        "Compensation_belief_state": {
+
+            "description": "Slot-value pairs for product belief state tracking",
+            "label_type": "multilabel_classification_string",
+            "required": False,
+            "model": ProductStateModel(),
+            "labels": [
+
+                "order_nbr"
+
+            ]
+
+        },
+        "Account_belief_state": {
+
+            "description": "Slot-value pairs for product belief state tracking",
+            "label_type": "multilabel_classification_string",
+            "required": False,
+            "model": ProductStateModel(),
+            "labels": [
+
+                "email",
+                "device",
+                "pwd"
+
+            ]
+
+        },
+        "Login_belief_state": {
+
+            "description": "Slot-value pairs for product belief state tracking",
+            "label_type": "multilabel_classification_string",
+            "required": False,
+            "model": ProductStateModel(),
+            "labels": [
+
+                "email",
+                "device",
+                "address"
+
+            ]
+
+        },
+        "ChangeData_belief_state": {
+
+            "description": "Slot-value pairs for product belief state tracking",
+            "label_type": "multilabel_classification_string",
+            "required": False,
+            "model": ProductStateModel(),
+            "labels": [
+
+                "data",
+                "email"
+
+            ]
+
+        },
+        "GDPR_belief_state": {
+
+            "description": "Slot-value pairs for product belief state tracking",
+            "label_type": "multilabel_classification_string",
+            "required": False,
+            "model": ProductStateModel(),
+            "labels": [
+
+            ]
+
+        },
 
         "Store_belief_state": {
 
@@ -297,7 +669,65 @@ class Configuration(object):
             "model"      : StoreStateModel(),
             "labels"     : [
 
-                "Store name"
+                "store"
+
+            ]
+
+        },
+        "ReceptionAlert_belief_state": {
+
+            "description": "Slot-value pairs for store belief state tracking",
+            "label_type" : "multilabel_classification_string",
+            "required"   : False,
+            "model"      : StoreStateModel(),
+            "labels"     : [
+
+                "spams"
+
+            ]
+
+        },
+    "AskConfirmation_belief_state": {
+
+            "description": "Slot-value pairs for store belief state tracking",
+            "label_type" : "multilabel_classification_string",
+            "required"   : False,
+            "model"      : StoreStateModel(),
+            "labels"     : [
+
+
+            ]
+
+        },
+
+        "CommuncationInterruption_belief_state": {
+
+            "description": "Slot-value pairs for store belief state tracking",
+            "label_type" : "multilabel_classification_string",
+            "required"   : False,
+            "model"      : StoreStateModel(),
+            "labels"     : [
+
+                "info",
+                "topic"
+
+            ]
+
+        },
+
+        "Website_belief_state": {
+
+            "description": "Slot-value pairs for store belief state tracking",
+            "label_type": "multilabel_classification_string",
+            "required": False,
+            "model": StoreStateModel(),
+            "labels": [
+
+                "device",
+                "operation",
+                "account_connection",
+                "cache",
+                "navigator"
 
             ]
 
@@ -327,7 +757,8 @@ class Configuration(object):
                 'Do nothing',
                 'Repeat previous',
                 'Negate request',
-                'Ask for another question'
+                'Ask for another question',
+                'OfferAlternative'
             ]
 
         },
@@ -394,6 +825,8 @@ class Configuration(object):
 
         }
     }
+
+
 
 
     @staticmethod
